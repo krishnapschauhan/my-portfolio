@@ -91,13 +91,6 @@ const Index = () => {
       image: project2,
       tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
       link: "https://krishnapschauhan.github.io/quicknote/"
-    },
-    {
-      title: "Creative Hub",
-      description: "A mock web app showcasing creative portfolios with interactive features. Modern design with smooth animations and responsive layout.",
-      image: project3,
-      tech: ["React", "Tailwind CSS", "Framer Motion", "Node.js"],
-      link: "#"
     }
   ];
 
