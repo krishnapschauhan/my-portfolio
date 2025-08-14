@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Paper-themed design system with handwritten feel */
+
+@layer base {
+  :root {
+    /* Paper theme colors */
+    --background: 42 15% 97%; /* Off-white paper */
+    --foreground: 0 0% 10%; /* Deep black text */
+    
+    --card: 42 15% 98%; /* Slightly lighter paper cards */
+    --card-foreground: 0 0% 10%;
+    
+    --popover: 42 15% 98%;
+    --popover-foreground: 0 0% 10%;
+    
+    --primary: 0 0% 10%; /* Black primary */
+    --primary-foreground: 42 15% 97%;
+    
+    --secondary: 35 25% 94%; /* Warm paper tone */
+    --secondary-foreground: 0 0% 15%;
+    
+    --muted: 40 20% 92%; /* Subtle paper texture */
+    --muted-foreground: 0 0% 40%;
+    
+    --accent: 45 90% 75%; /* Sticky note yellow */
+    --accent-foreground: 0 0% 10%;
+    
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 42 15% 97%;
+    
+    --border: 35 15% 85%; /* Soft paper edges */
+    --input: 35 15% 90%;
+    --ring: 0 0% 20%;
+    
+    --radius: 0.375rem; /* Slightly rounded for organic feel */
+    
+    /* Paper texture effects */
+    --paper-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --sticky-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    --handwritten-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    
+    /* Sticky note colors */
+    --sticky-yellow: 48 89% 85%;
+    --sticky-pink: 340 82% 85%;
+    --sticky-green: 120 50% 82%;
+    --sticky-blue: 210 70% 82%;
+    --sticky-orange: 30 90% 82%;
+    
+    /* Fonts */
+    --font-handwritten: 'Caveat', cursive;
+    --font-casual: 'Kalam', cursive;
+    
+    --sidebar-background: 40 20% 95%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 0 0% 10%;
+    --sidebar-primary-foreground: 42 15% 97%;
+    --sidebar-accent: 35 25% 92%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 35 15% 85%;
+    --sidebar-ring: 0 0% 30%;
+  }
+
+  .dark {
+    /* Dark mode maintains paper theme with darker tones */
+    --background: 35 8% 12%;
+    --foreground: 42 15% 90%;
+    --card: 35 8% 15%;
+    --card-foreground: 42 15% 90%;
+    --popover: 35 8% 15%;
+    --popover-foreground: 42 15% 90%;
+    --primary: 42 15% 90%;
+    --primary-foreground: 35 8% 12%;
+    --secondary: 35 12% 20%;
+    --secondary-foreground: 42 15% 85%;
+    --muted: 35 10% 18%;
+    --muted-foreground: 42 10% 60%;
+    --accent: 48 75% 60%;
+    --accent-foreground: 35 8% 12%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 42 15% 90%;
+    --border: 35 12% 25%;
+    --input: 35 12% 22%;
+    --ring: 42 10% 70%;
+    --sidebar-background: 35 8% 10%;
+    --sidebar-foreground: 42 15% 85%;
+    --sidebar-primary: 42 15% 90%;
+    --sidebar-primary-foreground: 35 8% 12%;
+    --sidebar-accent: 35 10% 18%;
+    --sidebar-accent-foreground: 42 15% 80%;
+    --sidebar-border: 35 12% 22%;
+    --sidebar-ring: 42 10% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-casual;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 188, 120, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(120, 198, 121, 0.05) 0%, transparent 50%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Paper texture background with graph paper grid */
+  .paper-bg {
+    background-image: 
+      /* Graph paper grid - faint square pattern */
+      linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      /* Original paper texture dots */
+      radial-gradient(circle at 25px 25px, rgba(0, 0, 0, 0.015) 1px, transparent 0),
+      radial-gradient(circle at 75px 75px, rgba(0, 0, 0, 0.01) 1px, transparent 0);
+    background-size: 
+      20px 20px,
+      20px 20px,
+      100px 100px, 
+      50px 50px;
+  }
+  
+  /* Paper shadow effects */
+  .paper-shadow {
+    box-shadow: var(--paper-shadow);
+  }
+  
+  .sticky-shadow {
+    box-shadow: var(--sticky-shadow);
+  }
+  
+  /* Handwritten text styles */
+  .handwritten {
+    font-family: var(--font-handwritten);
+    text-shadow: var(--handwritten-shadow);
+  }
+  
+  .casual-text {
+    font-family: var(--font-casual);
+  }
+  
+  /* Organic shapes and borders */
+  .organic-border {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  }
+  
+  .wavy-border {
+    clip-path: polygon(0% 0%, 100% 0%, 98% 85%, 85% 90%, 70% 95%, 50% 98%, 30% 95%, 15% 90%, 2% 85%);
+  }
+  
+  /* Sticky note styles */
+  .sticky-yellow {
+    background-color: hsl(var(--sticky-yellow));
+  }
+  
+  .sticky-pink {
+    background-color: hsl(var(--sticky-pink));
+  }
+  
+  .sticky-green {
+    background-color: hsl(var(--sticky-green));
+  }
+  
+  .sticky-blue {
+    background-color: hsl(var(--sticky-blue));
+  }
+  
+  .sticky-orange {
+    background-color: hsl(var(--sticky-orange));
+  }
+  
+  /* Yellow highlighter effect */
+  .highlighter {
+    background: linear-gradient(120deg, hsl(48 89% 75% / 0.3) 0%, hsl(48 89% 75% / 0.3) 100%);
+    background-size: 100% 0.7em;
+    background-repeat: no-repeat;
+    background-position: 0 80%;
+    padding: 0 0.1em;
+  }
+  
+  /* Smooth scroll animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) translateY(20px);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.05) translateY(-5px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .animate-slideInLeft {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+  
+  .animate-slideInRight {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+  
+  .animate-bounceIn {
+    animation: bounceIn 0.6s ease-out forwards;
+  }
+  
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 0.3s;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+  }
+  
+  /* Navigation styles */
+  .nav-fixed {
+    backdrop-filter: blur(10px);
+    background-color: hsl(var(--background) / 0.9);
+  }
+}
