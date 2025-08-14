@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import meImg from "@/assets/me.jpg"; // Make sure path is correct
 
 const Highlight = ({ children }: { children: React.ReactNode }) => (
   <span className="relative inline-block z-0 overflow-visible">
@@ -22,11 +23,11 @@ export default function Aboutme() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Profile Image */}
             <div className="flex justify-center">
-              <img
-                src="./src/assets/me.jpg"
-                alt="Krishna Pratap Singh Chauhan"
-                className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-yellow-200 shadow-lg"
-              />
+            <img
+              src={meImg}
+              alt="Krishna Pratap Singh Chauhan"
+              className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-yellow-200 shadow-lg"
+            />
             </div>
 
             {/* Text */}
