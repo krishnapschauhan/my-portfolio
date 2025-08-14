@@ -1,4 +1,4 @@
-# 🧑‍💻 Krishna P. Chauhan – Portfolio
+# 🧑‍💻 Krishna Pratap Singh Chauhan – Portfolio
 
 ![Status](https://img.shields.io/badge/status-active-success?style=for-the-badge)
 ![Made with React](https://img.shields.io/badge/Made%20with-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
@@ -10,7 +10,7 @@ This is my personal portfolio showcasing my skills, projects, and experiences in
 ---
 
 ## 💡 About Me
-I'm Krishna P. Chauhan, a web developer passionate about building intuitive and dynamic user experiences. I enjoy exploring new tools and frameworks to improve my skills.
+I'm Krishna Pratap Singh Chauhan, a web developer passionate about building intuitive and dynamic user experiences. I enjoy exploring new tools and frameworks to improve my skills.
 
 ---
 
