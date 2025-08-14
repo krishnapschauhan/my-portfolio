@@ -23,7 +23,7 @@ export default function Aboutme() {
             {/* Profile Image */}
             <div className="flex justify-center">
               <img
-                src="/src/assets/me.jpg"
+                src="./src/assets/me.jpg"
                 alt="Krishna Pratap Singh Chauhan"
                 className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-yellow-200 shadow-lg"
               />
