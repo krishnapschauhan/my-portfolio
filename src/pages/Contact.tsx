@@ -50,12 +50,13 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      await send(
-        "service_2prxeuc",  // replace with your EmailJS Service ID
-        "template_58kpopp", // replace with your EmailJS Template ID
+     await send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formData,
-        "1RMZbm_2b9U4IYd_z" // replace with your EmailJS Public Key
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
+
 
       setSuccess("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
