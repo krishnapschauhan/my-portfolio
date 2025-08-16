@@ -7,6 +7,14 @@ import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
 import { send } from "@emailjs/browser";
 
+
+const Highlight = ({ children }: { children: React.ReactNode }) => (
+  <span className="relative inline-block z-0 overflow-visible">
+    {children}
+    <span className="absolute left-0 bottom-1 w-full h-3 bg-yellow-200 z-[-1] rounded-sm"></span>
+  </span>
+);
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -50,13 +58,12 @@ export default function Contact() {
     setLoading(true);
 
     try {
-     await send(
+      await send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formData,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-
 
       setSuccess("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
@@ -73,7 +80,7 @@ export default function Contact() {
     <section className="py-20 px-6" id="contact">
       <div className="max-w-2xl mx-auto">
         <h2 className="handwritten text-6xl font-bold text-foreground mb-12 text-center transform rotate-1">
-          Let's Connect
+          <Highlight>Let's Connect</Highlight>
         </h2>
         <Card className="paper-shadow p-8 organic-border transform -rotate-1 animate-fadeInUp">
           <form onSubmit={handleSubmit} className="space-y-6">

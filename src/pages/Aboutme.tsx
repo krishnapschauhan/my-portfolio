@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import meImg from "@/assets/me.jpg"; // Make sure path is correct
+import me from "../assets/me.jpg";
 
 const Highlight = ({ children }: { children: React.ReactNode }) => (
   <span className="relative inline-block z-0 overflow-visible">
@@ -12,45 +12,52 @@ const Highlight = ({ children }: { children: React.ReactNode }) => (
 
 export default function Aboutme() {
   return (
-    <section className="py-20 px-6" id="about">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="bg-card paper-shadow p-8 md:p-12 organic-border transform -rotate-1 overflow-visible"
-        >
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Profile Image */}
-            <div className="flex justify-center">
-            <img
-              src={meImg}
-              alt="Krishna Pratap Singh Chauhan"
-              className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-yellow-200 shadow-lg"
-            />
-            </div>
+    <section
+      id="about"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-16 px-6 md:px-24 py-28"
+    >
+      {/* Left side - Image */}
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="flex-shrink-0"
+      >
+        <img
+          src={me}
+          alt="Me"
+          className="w-52 h-52 md:w-64 md:h-64 rounded-full border-4 border-yellow-300 object-cover"
+        />
+      </motion.div>
 
-            {/* Text */}
-            <div className="overflow-visible">
-              <h2 className="handwritten text-6xl font-bold text-foreground mb-8 transform rotate-1">
-                About Me
-              </h2>
+      {/* Right side - Text */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-xl text-center md:text-left"
+      >
+        <h2 className="text-6xl font-bold mb-6">
+          <Highlight>Hello!</Highlight>
+        </h2>
 
-              <div className="space-y-6 casual-text text-lg leading-relaxed text-foreground overflow-visible">
-                <p>
-                  I'm <Highlight>Krishna Pratap Singh Chauhan</Highlight>, a student of <Highlight>AKTU University</Highlight>. 
-                  Passionate about <Highlight>Full Stack Development</Highlight>, I enjoy building projects that combine design and functionality to solve real-world problems.
-                </p>
+        {/* Always visible (short version) */}
+        <p className="text-lg leading-relaxed text-foreground">
+           I’m <Highlight>Krishna Pratap Singh Chauhan</Highlight>, currently a
+          student at <Highlight>AKTU University</Highlight>and passionate about{" "}
+          <Highlight>Full Stack Development</Highlight> and solving real-world
+          problems through clean, user-friendly projects.
+        </p>
 
-                <p>
-                  I'm also a <Highlight>Tech Enthusiast</Highlight> and a learner in <Highlight>Artificial Intelligence & Machine Learning</Highlight>, 
-                  constantly exploring new technologies and improving my skills.
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+        {/* Extra details visible only on desktop */}
+        <p className="mt-4 text-lg leading-relaxed text-foreground hidden md:block">
+          I enjoy working with <Highlight>React</Highlight>,{" "}
+          <Highlight>Tailwind</Highlight>, and <Highlight>Node</Highlight>.  
+          Beyond coding, I’m also a <Highlight>Tech Enthusiast</Highlight>{" "}
+          exploring <Highlight>Artificial Intelligence & Machine Learning</Highlight>, 
+          constantly learning new technologies and improving my problem-solving skills.
+        </p>
+      </motion.div>
     </section>
   );
 }

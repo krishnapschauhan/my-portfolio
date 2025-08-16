@@ -15,12 +15,19 @@ interface ExperienceProps {
   experience: ExperienceItem[];
 }
 
+const Highlight = ({ children }: { children: React.ReactNode }) => (
+  <span className="relative inline-block z-0 overflow-visible">
+    {children}
+    <span className="absolute left-0 bottom-1 w-full h-3 bg-yellow-200 z-[-1] rounded-sm"></span>
+  </span>
+);
+
 export default function Experience({ experience }: ExperienceProps) {
   return (
-    <section className="py-32 px-6 bg-background" id="experience">
+    <section className="py-32 px-6" id="experience">
       <div className="max-w-6xl mx-auto">
         <h2 className="handwritten text-6xl font-bold text-foreground mb-20 text-center transform -rotate-1">
-          Experience
+          <Highlight>Experience</Highlight>  
         </h2>
 
         <div className="relative">
@@ -48,7 +55,7 @@ export default function Experience({ experience }: ExperienceProps) {
                       isLeft ? "md:pr-16 md:text-right" : "md:pl-16"
                     }`}
                   >
-                    <div className="bg-card paper-shadow p-8 organic-border transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                    <div className="bg-card paper-shadow organic-border p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
                       <div className="flex flex-col md:flex-row items-start gap-6">
                         <Icon className="w-10 h-10 text-primary mt-1 flex-shrink-0" />
                         <div>
@@ -70,7 +77,11 @@ export default function Experience({ experience }: ExperienceProps) {
 
                           {exp.certificateLink && (
                             <a
-                              href={exp.certificateLink.startsWith("http") ? exp.certificateLink : `https://${exp.certificateLink}`}
+                              href={
+                                exp.certificateLink.startsWith("http")
+                                  ? exp.certificateLink
+                                  : `https://${exp.certificateLink}`
+                              }
                               target="_blank"
                               rel="noopener noreferrer"
                               className="handwritten text-sm bg-yellow-200 px-5 py-2 rounded hover:bg-yellow-300 transition-all inline-block mt-2 relative z-20 text-center"

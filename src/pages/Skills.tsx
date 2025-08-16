@@ -16,6 +16,14 @@ interface SkillsProps {
   tools: Skill[];
 }
 
+
+const Highlight = ({ children }: { children: React.ReactNode }) => (
+  <span className="relative inline-block z-0 overflow-visible">
+    {children}
+    <span className="absolute left-0 bottom-1 w-full h-3 bg-yellow-200 z-[-1] rounded-sm"></span>
+  </span>
+);
+
 export default function Skills({ programmingLanguages, webDevelopment, tools }: SkillsProps) {
   const renderSkillGrid = (skills: Skill[]) => (
     <div className="grid grid-cols-2 gap-6">
@@ -38,7 +46,7 @@ export default function Skills({ programmingLanguages, webDevelopment, tools }: 
     <section className="py-20 px-6" id="skills">
       <div className="max-w-6xl mx-auto">
         <h2 className="handwritten text-6xl font-bold text-foreground mb-12 text-center transform -rotate-1">
-          My Skills
+          <Highlight>My Skills</Highlight>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

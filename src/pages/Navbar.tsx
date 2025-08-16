@@ -14,7 +14,11 @@ export default function Navbar({ navItems, scrollToSection }: NavbarProps) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border paper-shadow bg-background">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="handwritten text-2xl font-bold text-foreground cursor-pointer" onClick={() => scrollToSection("hero")}>
+        {/* Logo */}
+        <h1
+          className="handwritten text-2xl font-bold text-foreground cursor-pointer"
+          onClick={() => scrollToSection("hero")}
+        >
           Krishna
         </h1>
 
@@ -32,7 +36,10 @@ export default function Navbar({ navItems, scrollToSection }: NavbarProps) {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <button
+          className="md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -41,11 +48,11 @@ export default function Navbar({ navItems, scrollToSection }: NavbarProps) {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, scaleY: 0 }}
+            animate={{ opacity: 1, scaleY: 1 }}
+            exit={{ opacity: 0, scaleY: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-card border-t border-border overflow-hidden"
+            className="md:hidden bg-card border-t border-border origin-top overflow-hidden"
           >
             <div className="px-6 py-4 space-y-4">
               {navItems.map((item) => (
